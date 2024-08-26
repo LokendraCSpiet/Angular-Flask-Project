@@ -1,0 +1,322 @@
+.container {
+    border-bottom: solid 1px var(--secondary-color);
+    position: relative;
+    background-color: #000000; /* Fallback color */
+    overflow: hidden;
+  }
+  
+  .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/background.jpg');
+    background-size: cover; /* Ensure the image covers the entire div */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-color: rgba(0, 0, 0, 0.1); /* Add a semi-transparent overlay */
+    z-index: 1; /* Place behind the content */
+    opacity: 0.3;
+  }
+  
+  .container > * {
+    position: relative; /* Ensure content stays above the background */
+    z-index: 2; /* Ensure content appears above the background */
+    color: white; /* Adjust text color as needed */
+  }
+    .tasks_contaier{
+      width: 80%;
+     
+      margin: auto;
+      position: sticky;
+      top: 200;
+      z-index: 999;
+  
+    }
+    .header{
+      display: flex;
+      justify-content: space-between;
+    
+    }
+    .add_btn{
+      padding: 5px 50px;
+      background-color: var(--primary-color);
+      border-radius: 10px;
+      box-shadow: none;
+      border: none;
+      font-weight: bold;
+      margin:30px 10px;
+     
+      color: white;
+    }
+  
+    .Tasks_container_label {
+      font-size: 36px;
+      font-weight: bolder;
+      color: white;
+  }
+  .filter-buttons {
+    display: flex;
+    gap: 15px; /* Adjust gap between buttons */
+    border-bottom: solid 1px var(--secondary-color);
+    padding: 10px;
+  }
+  
+  .filter-button {
+    background-color: transparent;
+    border: none;
+    color:var(--black50);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: all 0.3s;
+  }
+  
+  .filter-button.active {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  .filter-button:hover {
+    color: #ffffff;
+  }
+  .task_card_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+  .task_card{
+  
+  
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+    background-color:var(--secondary-color);
+    padding: 10px 20px;
+    margin:20px 10px;
+    position: relative;
+    
+  }
+  .status_label{
+    font-size: 12px;
+    font-weight: bolder;
+    
+  }
+  .task_title{
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+  }
+  .task_desc{
+    font-size: 15px;
+    color:var(--black50)
+  }
+  .task_dueDate{
+    font-size: 12px;
+    color:var(--black50)
+  }
+  .Pending {
+    color: orange;
+  }
+  
+  .Inprogress {
+    color: #2196F3;
+  }
+  
+  .Completed {
+    color: green;
+  }
+  
+  
+  .task_buttons {
+    position: absolute; /* Position the buttons at the bottom of the card */
+    bottom: 10px;
+    left: 16px; /* Align buttons with card padding */
+    right: 16px;
+    display: flex;
+    justify-content: space-between; /* Space out the buttons */
+  }
+  
+  .task_buttons button {
+    padding: 8px 12px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .task_buttons button:hover {
+    background-color: #0056b3;
+  }
+  .delete_btn{
+    background-color: red !important;
+  }
+  
+  
+  
+  /* Modal Container */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  }
+  
+  /* Modal Container */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background with opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #1a1a1a; /* Dark gray background */
+    margin: 10% auto; /* Center the modal */
+    padding: 20px;
+    border: 1px solid #444; /* Darker border */
+    width: 90%; /* Default width */
+    max-width: 600px; /* Maximum width */
+    border-radius: 8px;
+    color: #ffffff; /* White text */
+  }
+  
+  /* Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Show Modal */
+  .modal.show {
+    display: block; /* Show the modal */
+  }
+  
+  /* Form Inputs */
+  input[type="text"],
+  textarea,
+  select,
+  input[type="date"] {
+    width: 100%; /* Ensure all inputs take full width of the container */
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #333333; /* Dark input background */
+    border: 1px solid #555; /* Darker border */
+    color: #ffffff; /* White text */
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+  }
+  
+  /* Ensure textarea adjusts to fit content */
+  textarea {
+    resize: vertical; /* Allow vertical resizing but not horizontal */
+  }
+  
+  /* Focus State */
+  input[type="text"]:focus,
+  textarea:focus,
+  select:focus,
+  input[type="date"]:focus {
+    border-color: #007bff; /* Blue accent on focus */
+    outline: none;
+  }
+  
+  /* Submit Button */
+  button[type="submit"] {
+    background-color: #007bff; /* Blue background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width to match input fields */
+    margin-top: 20px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .modal-content {
+      margin: 5% auto; /* Reduce margin on smaller screens */
+      width: 95%; /* Increase width on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .modal-content {
+      width: 100%; /* Full width on very small screens */
+      border-radius: 0; /* Remove border radius */
+    }
+  
+    .close {
+      font-size: 24px; /* Smaller close button on very small screens */
+    }
+  
+    button[type="submit"] {
+      padding: 8px 16px; /* Adjust button padding */
+    }
+  }
+  
+  .search-container {
+    margin: 20px 0;
+  }
+  
+  .search-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #333333;
+    border: 1px solid #555;
+    color: #ffffff;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .search-container input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .date-filter {
+    margin: 20px 0;
+  }
+  
+  .date-filter label {
+    margin-right: 10px;
+  }
+  
+  .date-filter input {
+    padding: 5px;
+    margin-right: 20px;
+  }
+  

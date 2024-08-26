@@ -1,0 +1,21 @@
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <form (ngSubmit)="login()">
+        <h3>Login Here</h3>
+    
+        <label for="username">Username</label>
+        <input type="text" placeholder="Username" id="username" [(ngModel)]="user.username" name="username" required>
+    
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" [(ngModel)]="user.password" name="password" required>
+    
+        <button type="submit" class="login_btn">Log In</button>
+        <!-- <button type="button" class="login_btn" (click)="register()">Register</button> -->
+        <div class="social">
+            <div class="signin_btn" (click)="register()">Register</div>
+        </div>
+        <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    </form>

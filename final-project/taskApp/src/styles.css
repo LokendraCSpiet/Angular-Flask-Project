@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    color: #ffffff;
+    --primary-color: #5051F9;
+    --secondary-color: #131517;
+    --background-color: #000000;
+   
+
+
+  --black100: #000000; /* Pure black */
+  --black90: #1a1a1a; /* Very dark gray (slightly lighter than black) */
+  --black80: #333333; /* Charcoal (dark gray) */
+  --black70: #4d4d4d; /* Slate gray (medium-dark gray) */
+  --black60: #666666; /* Light gray (medium gray) */
+  --black50: #808080; /* Gray (light gray) */
+  --black40: #999999; /* Dark gray (slightly darker than gray) */
+  --black30: #b3b3b3; /* Medium gray (medium-light gray) */
+  --black20: #cccccc; /* Medium light gray (light gray) */
+  --black10: #e6e6e6; /* Light light gray (slightly darker than gray) */
+
+  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif; /* Use Inter font */
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 0;
+    margin: 0;
+  }
+
+
+.title_btn{
+    padding: 10px 50px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    box-shadow: none;
+    border: none;
+    font-weight: bold;
+    margin-top: 50px;
+    
+}
+:hover.title_btn{
+    background-color: #6a6aff;
+    color: white;
+    cursor: pointer;
+}
+
+  .primary_btn {
+    display: inline-block;
+    color: #fff;
+    letter-spacing: 0px;
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 46px;
+    outline: none !important;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    background-image: linear-gradient(to right, #4458dc 0%, #854fee 100%), radial-gradient(circle at top left, #4458dc, #854fee);
+    border: double 2px transparent;
+    box-shadow: 0px 10px 30px rgba(118, 85, 225, 0.3); }
+    .primary_btn span {
+      padding: 0 42px; }
+    .primary_btn.tr-bg {
+      background-image: linear-gradient(#ffffff, #ffffff), radial-gradient(circle at top left, #4458dc, #854fee);
+      border: 2px solid transparent;
+      color: #222222;
+      box-shadow: none; }
+      .primary_btn.tr-bg:hover {
+        background-image: linear-gradient(to right, #4458dc 0%, #854fee 100%), radial-gradient(circle at top left, #4458dc, #854fee);
+        border: double 2px transparent;
+        color: #ffffff;
+        box-shadow: 0px 10px 30px rgba(118, 85, 225, 0.3); }
+    .primary_btn:hover {
+      background-image: linear-gradient(#ffffff, #ffffff), radial-gradient(circle at top left, #4458dc, #854fee);
+      border: 2px solid #854fee;
+      color: #222222;
+      box-shadow: none;
+      background-clip: border-box; }

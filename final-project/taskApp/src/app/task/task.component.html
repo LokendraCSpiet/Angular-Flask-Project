@@ -1,0 +1,111 @@
+<!-- window container -->
+<div class="container">
+
+
+    <div class="tasks_contaier">
+        <div class="header">
+            <h2 class="Tasks_container_label">Tasks</h2>
+            <button class="add_btn" (click)="openModal()">New Task</button>
+        </div>
+
+        <!-- Search Field -->
+        <div class="search-container">
+            <input type="text" [(ngModel)]="searchQuery" (input)="searchTasks(searchQuery)"
+                placeholder="Search tasks...">
+        </div>
+
+        <!-- Date Filter -->
+        <div class="date-filter">
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" [(ngModel)]="startDate" (change)="filterByDate(startDate, endDate)">
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" [(ngModel)]="endDate" (change)="filterByDate(startDate, endDate)">
+        </div>
+
+        
+
+        <div class="modal" [ngClass]="{ 'show': isModalOpen }">
+            <div class="modal-content">
+                <span class="close" (click)="closeModal()">&times;</span>
+                <h2>Add New Task</h2>
+
+                <!-- Task Form -->
+                <form (ngSubmit)="addTask()">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" [(ngModel)]="newTask.title" name="title" required>
+
+                    <label for="desc">Description</label>
+                    <textarea id="desc" [(ngModel)]="newTask.description" name="desc" required></textarea>
+
+                    <label for="status">Status</label>
+                    <select id="status" [(ngModel)]="newTask.status" name="status" required>
+                        <option value="Pending">Pending</option>
+                        <option value="Inprogress">Inprogress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+
+                    <label for="due">Due Date</label>
+                    <input type="date" id="due" [(ngModel)]="newTask.due_date" name="due" required>
+
+                    <button type="submit">Add Task</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="filter-buttons">
+            <button *ngFor="let status of statuses" (click)="filterTasks(status)"
+                [ngClass]="{ 'active': selectedStatus === status }" class="filter-button">
+                {{ status }}
+            </button>
+        </div>
+
+        <!-- taskCard Container -->
+        <div class="task_card_container">
+            <div class="task_card" *ngFor="let task of filteredTasks">
+                <p class="status_label" [ngClass]="task.status">{{ task.status }}</p>
+                <br>
+                <h2 class="task_title">{{ task.title }}</h2>
+                <p class="task_desc">{{ task.description }}</p>
+                <p class="task_dueDate">{{ task.due_date }}</p>
+
+                <!-- Buttons at the bottom -->
+                <div class="task_buttons">
+                    <!-- <button>Edit</button> -->
+                    <button (click)="openTaskModal(task.id)">Edit</button>
+                    <button class="delete_btn" (click)="deleteTask(task.id)">Delete</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal" [ngClass]="{ 'show': isTaskModalOpen }">
+            <div class="modal-content">
+                <span class="close" (click)="closeTaskModal()">&times;</span>
+                <h2>Task Details</h2>
+
+                <!-- Update Task Form -->
+                <form (ngSubmit)="updateTask()">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" [(ngModel)]="taskDetail.title" name="title" required>
+
+                    <label for="desc">Description</label>
+                    <textarea id="desc" [(ngModel)]="taskDetail.description" name="desc" required></textarea>
+
+                    <label for="status">Status</label>
+                    <select id="status" [(ngModel)]="taskDetail.status" name="status" required>
+                        <option value="Pending">Pending</option>
+                        <option value="Inprogress">Inprogress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+
+                    <label for="due">Due Date</label>
+                    <input type="date" id="due" [(ngModel)]="taskDetail.due_date" name="due" required>
+
+                    <button type="submit">Update Task</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>

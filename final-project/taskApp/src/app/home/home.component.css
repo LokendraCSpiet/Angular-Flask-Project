@@ -1,0 +1,153 @@
+
+.title_container {
+    text-align: center;
+
+    padding-top: 180px;
+    padding-bottom: 120px;
+    border-bottom: solid 1px var(--secondary-color);
+    background-image: url('/assets/background.jpg'); /* Specify the image path */
+    background-size: cover; /* Make sure the image covers the entire div */
+    background-position: center; /* Center the image in the div */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    opacity: 0.9;
+
+}
+.title {
+    width: 550px;
+    margin: auto;
+    font-size: 48px;
+    font-weight: bolder;
+    color: white;
+}
+.title_desc {
+    font-size: 16px;
+
+    margin:30px auto;
+    width: 60%;
+    color:var(--black30);
+}
+.title_span {
+    
+    color: var(--primary-color);
+}
+
+.title_btn{
+    padding: 10px 50px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    box-shadow: none;
+    border: none;
+    font-weight: bold;
+    margin-top: 50px;
+    
+}
+:hover.title_btn{
+    background-color: #6a6aff;
+    color: white;
+    cursor: pointer;
+}
+
+.feature_container {
+    margin-top: 100px;
+    text-align: center;
+    border-bottom: solid 1px var(--secondary-color);
+}
+
+.feature_title {
+    font-size: 36px;
+    font-weight: bolder;
+    color: white;
+}
+.feature_card {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+   
+    margin:50px auto;
+    max-height: 200px;
+    border: solid 1px var(--secondary-color);
+    padding: 30px;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+
+}
+.feature_card_section {
+    
+    
+    margin: 0 20px;
+    width: 40%;
+    border-radius: 10px;
+    display: flex; /* Enable flexbox */
+    flex-direction: column;
+  
+    
+    
+}
+.card_right {
+   background-color: black;
+   position: relative;
+   overflow: hidden;
+   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+.feature_card_title{
+
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    text-align: left;
+}
+.feature_card_desc{
+    text-align: left;
+    font-size: 16px;
+    color:var(--black30);
+}
+.feature_card_img {
+    width: 100%; /* Make the image take up the full width of the div */
+    height: 100%; /* Make the image take up the full height of the div */
+    object-fit: cover; /* Ensures the image covers the div, cropping if necessary */
+    object-position: center; /* Centers the image within the div */
+    display: block; /* Removes any unwanted space at the bottom of the image */
+}
+.footer {
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    background-color: var(--background-color);
+}
+@media screen and (max-width: 500px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    
+    .header-right {
+        float: none;
+    }
+
+    .title {
+        font-size: 1.2em;
+    }
+
+    .title_desc {
+        font-size: 0.9em;
+    }
+
+    .title_btn {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+
+    .feature_card {
+        padding: 10px;
+    }
+
+    .feature_card_title {
+        font-size: 1.3em;
+    }
+
+    .feature_card_desc {
+        font-size: 1em;
+    }
+}

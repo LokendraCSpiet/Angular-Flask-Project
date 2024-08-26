@@ -1,0 +1,17 @@
+<div class="main_container">
+
+  <div class="header">
+    <a  class="logo"> <img src="assets/check.png" alt="Logo" class="header-logo">Task Manager</a>
+    <div class="header-right">
+      <button *ngFor="let rout of routes" (click)="selectRoute(rout)" [ngClass]="{ 'active': selectedRoute === rout }"
+        class="filter-button">
+        <a [routerLink]="rout">{{ rout }}</a>
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- <app-home></app-home> -->
+  <router-outlet></router-outlet>
+</div>
